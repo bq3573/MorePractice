@@ -1,11 +1,12 @@
 ﻿using MorePractice;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Program
 {
     public class Program
     {
 
-        public delegate Gift Del((string, double) newGift);
+        public delegate double MyDelegate(List<Gift> gifts);
         public static void Main(string[] args)
         {
             //Del creator = DelegateMehtod(());
@@ -28,14 +29,26 @@ namespace Program
   
             Gift most = Expensive.MostExpensive(gifts);
 
+            MyDelegate del = new MyDelegate(SumGifts);
+
+            Console.WriteLine("Total Cost: $" + del(gifts));
+
 
             Console.WriteLine(most.item.Item1 + ": " + most.item.Item2);
 
         }
 
-        //public Gift DelegateMehtod((string, double) newGift)
-        //{
-        //    return new Gift(newGift);
-        //}
+
+
+        public static double SumGifts(List<Gift> gifts)
+        {
+            double sum = 0;
+            foreach (Gift gift in gifts)
+            {
+                sum += gift.item.Item2;
+            }
+
+            return sum;
+        }
     }
 }
