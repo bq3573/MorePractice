@@ -1,14 +1,14 @@
-﻿#Change log -- MorePractice#
+﻿#Change log -- MorePractice
 
-##In Progress ##
+##In Progress 
 **12/22/22:** switch case practice
 
-##Added##
+##Added
 **12/21/22:** added CHANGELOG.md file
 **12/21/22:** added SumGifts
 
-##Removed##
+##Removed
 
 
 
-##Modified##
+##Modified
