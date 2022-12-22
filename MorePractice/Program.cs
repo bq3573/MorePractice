@@ -39,7 +39,7 @@ namespace Program
         }
 
 
-
+        // Sum total cost of gofts, meant for practicing delegates
         public static double SumGifts(List<Gift> gifts)
         {
             double sum = 0;
