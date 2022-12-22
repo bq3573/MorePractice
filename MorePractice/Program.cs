@@ -26,7 +26,7 @@ namespace Program
             gifts.Add(gift2);   
             gifts.Add(gift3);
             gifts.Add(gift4);
-  
+            //Use of MostExpensive
             Gift most = Expensive.MostExpensive(gifts);
 
             MyDelegate del = new MyDelegate(SumGifts);
