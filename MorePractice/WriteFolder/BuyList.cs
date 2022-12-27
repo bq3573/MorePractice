@@ -14,7 +14,7 @@ namespace MorePractice.WriteFolder
         public void WriteGift(List<Gift> gifts)
         {
             // Local Vars: ---------------------------------------------------------------
-            string fullpath = @"C:\Users\brand\source\repos\MorePractice\GiftsToGet.txt";
+            string fullpath = @"C:\Users\brand\source\repos\MorePractice\MorePractice\Output\GiftsToGet.txt";
             string giftsToBuy = "";
             double sum = 0;
             int count = 1;

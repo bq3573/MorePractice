@@ -14,7 +14,7 @@ namespace MorePractice.WriteFolder
     {
         public void WriteGift(List<Gift> gifts)
         {
-            string fullpath = @"C:\Users\brand\source\repos\MorePractice\GiftList.txt";
+            string fullpath = @"C:\Users\brand\source\repos\MorePractice\MorePractice\Output\GiftList.txt";
             string giftList = "";
             double sum = 0;
             foreach (Gift gift in gifts)

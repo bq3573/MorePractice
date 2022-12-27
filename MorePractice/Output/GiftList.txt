@@ -1,0 +1,6 @@
+Gift List: 
+puppy: $1000
+bot: $100
+sled: $30
+train: $12
+Total Cost: $1142
