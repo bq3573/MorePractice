@@ -6,7 +6,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MorePractice
+
+namespace MorePractice.Constructors.Operations
 {
     public static class Expensive
     {
@@ -26,7 +27,7 @@ namespace MorePractice
             }
 
 
-            Gift expensive = new Gift(MostExpensiveGift); 
+            Gift expensive = new Gift(MostExpensiveGift);
             return expensive;
         }
     }

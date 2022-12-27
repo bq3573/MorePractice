@@ -1,4 +1,6 @@
-﻿using MorePractice;
+﻿using MorePractice.Constructors;
+using MorePractice.Constructors.Operations;
+using MorePractice.WriteFolder;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Program
@@ -34,50 +36,25 @@ namespace Program
             Console.WriteLine("Total Cost: $" + del(gifts));
 
             // Print Most Expensive Items
-            Console.WriteLine("This is the most expensive item:\n");
-            Console.WriteLine(most.item.Item1 + ": " + most.item.Item2);
+            Console.WriteLine("This is the most expensive item:");
+            Console.WriteLine(most.item.Item1 + ": $" + most.item.Item2);
 
 
             // Implementation of a simple gift list to create a list of the items you want to buy and print them to
             // a text document titled: GiftsToGet.txt
-            CreateShoppingList(gifts);
+            //CreateShoppingList(gifts);
+
+            // Two uses of the IWriteGifts interface
+            // Writes all Gifts in giftList to a text file.
+            WriteAllGifts writer1 = new WriteAllGifts();
+            writer1.WriteGift(gifts);
+
+            // Writes only the gifts you want to buy to a text file
+            WriteBuyList writer2 = new WriteBuyList();
+            writer2.WriteGift(gifts);
 
         }
 
-        // Takes full gift list and gives the option to create a list of the items you wish to buy....
-        public static void CreateShoppingList(List<Gift> gifts)
-        {
-            // Local Vars: ---------------------------------------------------------------
-            string fullpath = @"C:\Users\brand\source\repos\MorePractice\GiftsToGet.txt";
-            string giftsToBuy = "";
-            double sum = 0;
-            //----------------------------------------------------------------------------
-            // Loop through gifts in gift list and switch on whether you want to buy or not.
-            foreach (Gift gift in gifts)
-            {
-                Console.WriteLine(gift.item.Item1 + ": " + gift.item.Item2);
-                Console.WriteLine("Press 1 if you want to buy, Press 2 if you don't");
-                int choice = Convert.ToInt32(Console.ReadLine());
-
-                switch (choice)
-                {
-                    // Main Case: concat item and price to string, increase sum based on the price.
-                    case 1:
-                        giftsToBuy += gift.item.Item1 + ": " + gift.item.Item2 + "\n";
-                        sum += gift.item.Item2;
-                        break;
-                    case 2:
-                        break;
-                    default:
-                        break;
-
-                }
-            }
-            // Write the string of gifts indicated to but to the file.
-            File.WriteAllText(fullpath, giftsToBuy + "Total Cost: $" + sum);
-        }
-
-        // Sum total cost of gofts, meant for practicing delegates
         public static double SumGifts(List<Gift> gifts)
         {
             double sum = 0;

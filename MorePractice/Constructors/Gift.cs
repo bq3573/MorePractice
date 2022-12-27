@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MorePractice
+namespace MorePractice.Constructors
 {
     // Sample Gift class to mess with creating a class to use for LINQ.
     public class Gift
