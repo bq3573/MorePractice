@@ -1,0 +1,4 @@
+bot: 100
+sled: 30
+train: 12
+Total Cost: 142
