@@ -5,16 +5,13 @@ namespace Program
 {
     public class Program
     {
-
+        // Delegate Example -- just to sum the list of gifts...
         public delegate double MyDelegate(List<Gift> gifts);
         public static void Main(string[] args)
         {
-            //Del creator = DelegateMehtod(());
-
-
-            //(string, double) t1 = ("puppy", 100);
-            //Gift gift1 = creator(t1);
-
+            // Example Creation of a gift list
+            // 4 Gifts of varying prices
+            // Use of collection type: List<Gift>
             List<Gift> gifts= new List<Gift>();
 
             Gift gift1 = new Gift(("puppy", 1000));
@@ -26,13 +23,17 @@ namespace Program
             gifts.Add(gift2);   
             gifts.Add(gift3);
             gifts.Add(gift4);
+            // End of Example Gift List
+
+
             //Use of MostExpensive
             Gift most = Expensive.MostExpensive(gifts);
 
+            // Use of delegate, SumGifts...
             MyDelegate del = new MyDelegate(SumGifts);
-
             Console.WriteLine("Total Cost: $" + del(gifts));
 
+            // Print Most Expensive Items
             Console.WriteLine("This is the most expensive item:\n");
             Console.WriteLine(most.item.Item1 + ": " + most.item.Item2);
 
@@ -43,12 +44,15 @@ namespace Program
 
         }
 
-
+        // Takes full gift list and gives the option to create a list of the items you wish to buy....
         public static void CreateShoppingList(List<Gift> gifts)
         {
+            // Local Vars: ---------------------------------------------------------------
             string fullpath = @"C:\Users\brand\source\repos\MorePractice\GiftsToGet.txt";
             string giftsToBuy = "";
             double sum = 0;
+            //----------------------------------------------------------------------------
+            // Loop through gifts in gift list and switch on whether you want to buy or not.
             foreach (Gift gift in gifts)
             {
                 Console.WriteLine(gift.item.Item1 + ": " + gift.item.Item2);
@@ -57,6 +61,7 @@ namespace Program
 
                 switch (choice)
                 {
+                    // Main Case: concat item and price to string, increase sum based on the price.
                     case 1:
                         giftsToBuy += gift.item.Item1 + ": " + gift.item.Item2 + "\n";
                         sum += gift.item.Item2;
@@ -68,8 +73,8 @@ namespace Program
 
                 }
             }
+            // Write the string of gifts indicated to but to the file.
             File.WriteAllText(fullpath, giftsToBuy + "Total Cost: $" + sum);
-            // return giftsToBuy;
         }
 
         // Sum total cost of gofts, meant for practicing delegates
