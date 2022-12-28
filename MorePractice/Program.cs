@@ -29,20 +29,16 @@ namespace Program
 
 
             //Use of MostExpensive
-            Gift most = Expensive.MostExpensive(gifts);
+            Gift most = Operations.MostExpensive(gifts);
 
             // Use of delegate, SumGifts...
-            MyDelegate del = new MyDelegate(SumGifts);
+            MyDelegate del = new MyDelegate(Operations.SumGifts);
             Console.WriteLine("Total Cost: $" + del(gifts));
 
             // Print Most Expensive Items
             Console.WriteLine("This is the most expensive item:");
             Console.WriteLine(most.item.Item1 + ": $" + most.item.Item2);
 
-
-            // Implementation of a simple gift list to create a list of the items you want to buy and print them to
-            // a text document titled: GiftsToGet.txt
-            //CreateShoppingList(gifts);
 
             // Two uses of the IWriteGifts interface
             // Writes all Gifts in giftList to a text file.
@@ -55,15 +51,6 @@ namespace Program
 
         }
 
-        public static double SumGifts(List<Gift> gifts)
-        {
-            double sum = 0;
-            foreach (Gift gift in gifts)
-            {
-                sum += gift.item.Item2;
-            }
 
-            return sum;
-        }
     }
 }

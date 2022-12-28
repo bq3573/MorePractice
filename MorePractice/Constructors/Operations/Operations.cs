@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MorePractice.Constructors.Operations
 {
-    public static class Expensive
+    public static class Operations
     {
         public static Gift MostExpensive(List<Gift> gifts)
         {
@@ -30,5 +30,19 @@ namespace MorePractice.Constructors.Operations
             Gift expensive = new Gift(MostExpensiveGift);
             return expensive;
         }
+
+
+        public static double SumGifts(List<Gift> gifts)
+        {
+            double sum = 0;
+            foreach (Gift gift in gifts)
+            {
+                sum += gift.item.Item2;
+            }
+
+            return sum;
+        }
     }
+
+
 }
