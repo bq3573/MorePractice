@@ -1,4 +1,5 @@
 Gifts to Buy:
 puppy: $1000
+bot: $100
 sled: $30
-Total Cost: $1030
+Total Cost: $1130

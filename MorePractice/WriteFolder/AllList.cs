@@ -26,7 +26,6 @@ namespace MorePractice.WriteFolder
             foreach (Gift gift in gifts)
             {
                 giftList += gift.item.Item1 + ": $" + gift.item.Item2 + "\n";
-
             }
 
             File.WriteAllText(fullpath, "Gift List: \n" + giftList + "Total Cost: $" + SumGifts(gifts));

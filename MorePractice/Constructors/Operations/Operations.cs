@@ -26,7 +26,6 @@ namespace MorePractice.Constructors.Operations
                 }
             }
 
-
             Gift expensive = new Gift(MostExpensiveGift);
             return expensive;
         }

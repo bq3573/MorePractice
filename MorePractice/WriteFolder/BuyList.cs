@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using MorePractice.Constructors;
 using static Program.Program;
 
@@ -26,12 +27,8 @@ namespace MorePractice.WriteFolder
             // Loop through gifts in gift list and switch on whether you want to buy or not.
             foreach (Gift gift in gifts)
             {
-                
-                Console.Write("------------------------------------------------\n");
-                Console.WriteLine("Gift #" + count + ":");
-                Console.WriteLine(gift.item.Item1 + ": $" + gift.item.Item2 + "\n");
-                Console.WriteLine("Press 1 if you want to buy, Press 2 if you don't");
-                int choice = Convert.ToInt32(Console.ReadLine());
+                // Prints formatting and returns switch case choice... (Mostly to keep method smaller).
+                int choice = PrintFormatting(gift, count);
 
                 switch (choice)
                 {
@@ -54,5 +51,19 @@ namespace MorePractice.WriteFolder
             // Write the string of gifts indicated to but to the file.
             File.WriteAllText(fullpath, "Gifts to Buy:\n" + giftsToBuy + "Total Cost: $" + SumGifts(giftsList));
         }
+
+        // Prints the formatting output to the CLI and returns the choice for the Switch Case
+        public int PrintFormatting(Gift gift, int count)
+        {
+            Console.Write("------------------------------------------------\n");
+            Console.WriteLine("Gift #" + count + ":");
+            Console.WriteLine(gift.item.Item1 + ": $" + gift.item.Item2 + "\n");
+            Console.WriteLine("Press 1 if you want to buy, Press 2 if you don't");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            return choice;
+        }
+        
     }
+
+
 }
