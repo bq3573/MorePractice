@@ -53,7 +53,7 @@ namespace MorePractice.WriteFolder
         }
 
         // Prints the formatting output to the CLI and returns the choice for the Switch Case
-        public int PrintFormatting(Gift gift, int count)
+        public static int PrintFormatting(Gift gift, int count)
         {
             Console.Write("------------------------------------------------\n");
             Console.WriteLine("Gift #" + count + ":");
