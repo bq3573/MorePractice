@@ -4,20 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MorePractice.Constructors;
+using static Program.Program;
 
 namespace MorePractice.WriteFolder
 {
     // Class implementing IWriteGifts interface,
     // to decide which gifts you will buy and wite them to a text file
+
+    // The delegate is less efficient because it calls a method with O(n) complexity
+    // but is used to implement a delegate as a method parameter
     public class WriteBuyList : IWriteGifts
     {
-        public void WriteGift(List<Gift> gifts)
+        public void WriteGift(List<Gift> gifts, MyDelegate SumGifts)
         {
             // Local Vars: ---------------------------------------------------------------
             string fullpath = @"C:\Users\brand\source\repos\MorePractice\MorePractice\Output\GiftsToGet.txt";
             string giftsToBuy = "";
-            double sum = 0;
             int count = 1;
+            List<Gift> giftsList = new List<Gift>();
             //----------------------------------------------------------------------------
             // Loop through gifts in gift list and switch on whether you want to buy or not.
             foreach (Gift gift in gifts)
@@ -34,7 +38,7 @@ namespace MorePractice.WriteFolder
                     // Main Case: concat item and price to string, increase sum based on the price.
                     case 1:
                         giftsToBuy += gift.item.Item1 + ": $" + gift.item.Item2 + "\n";
-                        sum += gift.item.Item2;
+                        giftsList.Add(gift);
 
                         Console.WriteLine(gift.item.Item1 + " has been added to your list...");
                         break;
@@ -48,7 +52,7 @@ namespace MorePractice.WriteFolder
                 count += 1;
             }
             // Write the string of gifts indicated to but to the file.
-            File.WriteAllText(fullpath, "Gifts to Buy:\n" + giftsToBuy + "Total Cost: $" + sum);
+            File.WriteAllText(fullpath, "Gifts to Buy:\n" + giftsToBuy + "Total Cost: $" + SumGifts(giftsList));
         }
     }
 }

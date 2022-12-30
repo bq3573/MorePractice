@@ -8,6 +8,7 @@ namespace GiftTests
 {
     public class BasicTets
     {
+        public delegate double MyDelegate(List<Gift> gifts);
         [Fact]
         public void Test1()
         {
@@ -59,6 +60,7 @@ namespace GiftTests
         [Fact]
         public void TestAllGiftsWrite()
         {
+            MyDelegate SumGifts = new MyDelegate(Operations.SumGifts);
             List<Gift> gifts = new List<Gift>();
             Gift gift1 = new Gift(("puppy", 1000));
             Gift gift2 = new Gift(("bot", 100));
@@ -71,7 +73,7 @@ namespace GiftTests
             gifts.Add(gift4);
 
             WriteAllGifts writer  = new WriteAllGifts();
-            writer.WriteGift(gifts);
+            writer.WriteGift(gifts, SumGifts);
 
             string check = File.ReadAllText(@"C:\Users\brand\source\repos\MorePractice\MorePractice\Output\GiftList.txt");
             //check.Replace("\n", "\\r\\");

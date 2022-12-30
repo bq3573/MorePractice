@@ -31,9 +31,8 @@ namespace Program
             //Use of MostExpensive
             Gift most = Operations.MostExpensive(gifts);
 
-            // Use of delegate, SumGifts...
+            // Create Delegate to use in both write methods.
             MyDelegate del = new MyDelegate(Operations.SumGifts);
-            Console.WriteLine("Total Cost: $" + del(gifts));
 
             // Print Most Expensive Items
             Console.WriteLine("This is the most expensive item:");
@@ -43,11 +42,11 @@ namespace Program
             // Two uses of the IWriteGifts interface
             // Writes all Gifts in giftList to a text file.
             WriteAllGifts writer1 = new WriteAllGifts();
-            writer1.WriteGift(gifts);
+            writer1.WriteGift(gifts, del);
 
             // Writes only the gifts you want to buy to a text file
             WriteBuyList writer2 = new WriteBuyList();
-            writer2.WriteGift(gifts);
+            writer2.WriteGift(gifts, del);
 
         }
 
