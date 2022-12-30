@@ -3,12 +3,13 @@ using MorePractice.Constructors.Operations;
 using MorePractice.WriteFolder;
 using NuGet.Frameworks;
 using System.IO;
+using Program;
+using static Program.Program;
 
 namespace GiftTests
 {
     public class BasicTets
     {
-        public delegate double MyDelegate(List<Gift> gifts);
         [Fact]
         public void Test1()
         {
