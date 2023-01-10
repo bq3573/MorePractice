@@ -23,8 +23,10 @@ namespace Program
         public delegate double MyDelegate(List<Gift> gifts);
         public static void Main(string[] args)
         {
-            // Creates mock Gift List
-            List<Gift> gifts = createGiftList();
+
+            // Create the starting Gift List.
+            List<Gift> gifts = new List<Gift>();
+            gifts = CreateList(gifts);
 
             //Use of MostExpensive
             Gift most = Operations.MostExpensive(gifts);
@@ -48,8 +50,28 @@ namespace Program
 
         }
 
+        // Code used to get original user input to create the original
+        // gift list.
+         public static List<Gift> CreateList(List<Gift> gifts)
+        {
+            int user_input = 1;
+            while (user_input == 1)
+            {
+                Console.WriteLine("Enter the the name of the Gift:");
+                string gift_name = Console.ReadLine();
+                Console.WriteLine("Enter the price of the Gift:");
+                double gift_price = Convert.ToDouble(Console.ReadLine());
+                Gift giftToAdd = new Gift((gift_name, gift_price));
+                gifts.Add(giftToAdd);
+                Console.WriteLine("-------------------------------------------\n");
+                Console.WriteLine("Enter 1 to add a new gift, enter 0 to stop:");
+                user_input = Convert.ToInt32(Console.ReadLine());
+            }
 
-         
+
+            return gifts;
+            
+        }
 
 
 
