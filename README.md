@@ -23,5 +23,5 @@ Used Visual Studio as the IDE and Windows Powershell to execute Git Commands to 
 ## Author
 
 Brandon Quinn 
-Email: brandonquninnp@gmai.com
+Email: brandonquninnp@gmail.com
 
