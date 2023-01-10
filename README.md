@@ -1,8 +1,6 @@
 # MorePractice
 # Gift List Command Line Program
 
-Simple overview of use/purpose.
-
 ## Description
 
  C# command line utility tool to parse user input and output formatted data to text files,
